@@ -1,6 +1,14 @@
-import { apiClient } from "./client";
+import axios from "axios";
+
 import type { Note } from "@/types/note";
 import type { NotesResponse } from "@/types/notes-response";
+
+const apiClient = axios.create({
+  baseURL: "https://notehub-public.goit.study/api",
+  headers: {
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
+  },
+});
 
 export const fetchNotes = async (
   page: number,
@@ -10,6 +18,7 @@ export const fetchNotes = async (
   const { data } = await apiClient.get<NotesResponse>("/notes", {
     params: { page, search, tag },
   });
+
   return data;
 };
 
