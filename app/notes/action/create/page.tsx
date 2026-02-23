@@ -2,18 +2,27 @@ import type { Metadata } from "next";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import css from "./CreateNote.module.css";
 
-const OG_IMAGE_URL =
-  "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg";
+const BASE_URL = "https://08-zustand-gamma-virid.vercel.app";
+const PAGE_URL = `${BASE_URL}/notes/action/create`;
+const OG_IMAGE_URL = "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg";
 
 export const metadata: Metadata = {
-  title: "Create note",
-  description: "Create a new note in NoteHub.",
-  alternates: { canonical: "/notes/action/create" },
+  title: "Create note | NoteHub",
+  description:
+    "Create a new note in NoteHub. Add a title, content, and select a tag.",
+  alternates: {
+    canonical: PAGE_URL,
+  },
   openGraph: {
     title: "Create note | NoteHub",
-    description: "Create a new note in NoteHub.",
-    url: "/notes/action/create",
-    images: [OG_IMAGE_URL],
+    description:
+      "Create a new note in NoteHub. Add a title, content, and select a tag.",
+    url: PAGE_URL,
+    images: [
+      {
+        url: OG_IMAGE_URL,
+      },
+    ],
   },
 };
 
